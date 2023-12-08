@@ -1,0 +1,60 @@
+import json
+import re
+import random
+def json_file(file):
+    with open(file) as bot:
+        return json.load(bot)
+
+response_data = json_file("chat.json")
+
+def random_ans():
+    responses = [
+        "Please try writing something more descriptive.",
+        "If you want to know the answer for the above sentence just type it in google.",
+        "Oh! It appears you wrote something I don't understand yet",
+        "Do you mind trying to rephrase that?",
+        "I'm terribly sorry, I didn't quite catch that.",
+        "I can't answer that yet, please try asking something else."
+    ]
+
+    responses_length = len(responses)
+    random_item = random.randrange(responses_length)
+
+    return responses[random_item]
+def get_response(input_string):
+    split_message = re.split(r'\s+|[,;?!.-]\s*', input_string.lower())
+    score_list = []
+
+    for response in response_data:
+        response_score = 0
+        required_score = 0
+        words = response["words"]
+
+        if words:
+            for word in split_message:
+                if word in words:
+                    required_score += 1
+
+
+        if required_score == len(words):
+            for word in split_message:
+                if word in response["user"]:
+                    response_score += 1
+
+
+        score_list.append(response_score)
+
+    best_response = max(score_list)
+    response_index = score_list.index(best_response)
+
+
+    if input_string == "":
+        return "Please type something so we can chat :("
+    if best_response != 0:
+        return response_data[response_index]["bot"]
+    return random_ans()
+
+
+while True:
+    user = input("You: ")
+    print("Bot:", get_response(user))
