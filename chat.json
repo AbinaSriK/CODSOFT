@@ -1,0 +1,50 @@
+[
+  {
+    "type": "greeting",
+    "user": ["hello", "hi", "hey"],
+    "bot": "Hi , how can I assist you?",
+    "words": []
+  },
+  {
+    "type": "greeting",
+    "user": ["see you", "goodbye", "bye"],
+    "bot": "Nice time talking with you, See you later!",
+    "words": []
+  },
+  {
+    "type": "greeting",
+    "user": ["nice", "to", "meet", "you"],
+    "bot": "Thank you, nice to meet you too!",
+    "words": ["nice", "meet", "you"]
+  },
+  {
+    "type": "question",
+    "user": ["how", "to", "learn", "code", "coding", "apps"],
+    "bot": "Start by typing: 'How to learn coding' on Google.",
+    "words": ["how", "to","learn","coding"]
+  },
+  {
+    "type": "question",
+    "user": ["what", "else", "can", "you", "do"],
+    "bot": "I am simple chat bot, you can chat with me.",
+    "words": ["what", "else", "can", "you", "do"]
+  },
+  {
+    "type": "question",
+    "user": ["how", "are", "you"],
+    "bot": "I'm great! Thanks for asking.",
+    "words": ["how", "are", "you"]
+  },
+  {
+    "type": "question",
+    "user": ["can","you","eat"],
+    "bot": "No I can't eat.",
+    "words": ["can","you","eat"]
+  },
+  {
+    "type": "question",
+    "user": ["who", "are", "you"],
+    "bot": "I'm a Chat Bot.",
+    "words": ["who", "are", "you"]
+  }
+]
